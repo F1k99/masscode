@@ -2,9 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:masscode/widget/pending_request.dart';
 import 'package:masscode/widget/testing.dart';
 
-class MainPage extends StatelessWidget {
+class MainPage extends StatefulWidget {
   const MainPage({super.key});
 
+  @override
+  State<MainPage> createState() => _MainPageState();
+}
+
+class _MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -301,12 +306,12 @@ class MainPage extends StatelessWidget {
                             ],
                           )),
                           Padding(
-                            padding: const EdgeInsets.fromLTRB(30, 0, 0, 0),
+                            padding: const EdgeInsets.fromLTRB(50, 0, 0, 0),
                             child: Row(
                               children: [
                                 Text("Pending",
                                     style: TextStyle(
-                                      fontSize: 15,
+                                      fontSize: 14,
                                       fontFamily: 'Readex Pro',
                                       color: Colors.grey,
                                       fontWeight: FontWeight.bold,
@@ -314,9 +319,21 @@ class MainPage extends StatelessWidget {
                               ],
                             ),
                           ),
-                          Row(
-                            children: [PendingRequest()],
-                          )
+                          Expanded(
+                            child: Padding(
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
+                              child: Row(
+                                mainAxisSize: MainAxisSize.max,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Expanded(
+                                    child: PendingRequest(),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
                           // Row(
                           //   children: [
                           //     Expanded(

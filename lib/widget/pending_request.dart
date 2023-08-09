@@ -8,15 +8,25 @@ class PendingRequest extends StatefulWidget {
 }
 
 class _PendingRequestState extends State<PendingRequest> {
-  List<String> titlesArray = [
-    "Item 1",
-    "Item 2",
+  List<String> leaveTypeArray = [
+    "Annual Leave",
+    "Sick Leave",
   ];
 
-  List<String> subtitlesArray = [
-    "Testing 1",
-    "Testing 2",
+  List<String> dateArray = [
+    "10/8/2023 - 11/8/2023",
+    "13/8/2023 - 15/8/2023",
   ];
+
+  List<String> daysArray = [
+    "3 Days",
+    "2 Days",
+  ];
+  List<String> statusArray = [
+    "Pending",
+    "Pending",
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -24,55 +34,121 @@ class _PendingRequestState extends State<PendingRequest> {
       child: Row(
         children: [
           Container(
-              height: 100,
+              height: 200,
               width: MediaQuery.of(context).size.width,
               child: ListView.builder(
                 physics: NeverScrollableScrollPhysics(),
-                itemCount: titlesArray.length,
+                itemCount: leaveTypeArray.length,
                 shrinkWrap: true,
                 itemBuilder: (context, index) {
-                  return Container(
-                    height: 50,
-                    width: MediaQuery.of(context).size.width,
-                    child: Text(
-                      titlesArray[index],
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                          color: Colors.black,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 20),
+                  return Padding(
+                    padding: EdgeInsets.fromLTRB(25, 0, 25, 15),
+                    child: Container(
+                      height: 90,
+                      width: MediaQuery.of(context).size.width,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.only(
+                            bottomLeft: Radius.circular(18),
+                            bottomRight: Radius.circular(25),
+                            topLeft: Radius.circular(18),
+                            topRight: Radius.circular(25),
+                          ),
+                          color: Colors.grey),
+                      child: Row(
+                        children: [
+                          Column(
+                            children: [
+                              Padding(
+                                padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
+                                child: Container(
+                                  width: 15,
+                                  height: 90,
+                                  decoration: BoxDecoration(
+                                    color: Colors.orange,
+                                    borderRadius: BorderRadius.only(
+                                      bottomLeft: Radius.circular(25),
+                                      bottomRight: Radius.circular(0),
+                                      topLeft: Radius.circular(25),
+                                      topRight: Radius.circular(0),
+                                    ),
+                                  ),
+                                ),
+                              )
+                            ],
+                          ),
+                          Expanded(
+                              child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Row(
+                                children: [
+                                  Padding(
+                                    padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
+                                    child: Text(
+                                      leaveTypeArray[index],
+                                      textAlign: TextAlign.start,
+                                      style: TextStyle(
+                                          fontFamily: 'Readex Pro',
+                                          color: Colors.black,
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 17),
+                                    ),
+                                  )
+                                ],
+                              ),
+                              Row(
+                                children: [
+                                  Padding(
+                                    padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
+                                    child: Text(
+                                      dateArray[index],
+                                      textAlign: TextAlign.start,
+                                      style: TextStyle(
+                                          color: Colors.black,
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 12),
+                                    ),
+                                  )
+                                ],
+                              )
+                            ],
+                          )),
+                          Padding(
+                            padding: EdgeInsets.fromLTRB(0, 0, 15, 0),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text(
+                                  daysArray[index],
+                                  textAlign: TextAlign.start,
+                                  style: TextStyle(
+                                      color: Colors.black,
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 12),
+                                ),
+                              ],
+                            ),
+                          ),
+                          Padding(
+                            padding: EdgeInsets.fromLTRB(0, 0, 15, 0),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text(
+                                  statusArray[index],
+                                  textAlign: TextAlign.start,
+                                  style: TextStyle(
+                                      color: Colors.black,
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 12),
+                                ),
+                              ],
+                            ),
+                          )
+                        ],
+                      ),
                     ),
                   );
-                  // return ListTile(
-                  //   tileColor: Colors.white,
-                  //   title: Text(
-                  //     titlesArray[index],
-                  //     style: TextStyle(
-                  //       color: Colors.black,
-                  //       fontSize: 13.0,
-                  //       fontWeight: FontWeight.normal,
-                  //       fontFamily: "Sans",
-                  //     ),
-                  //   ),
-                  //   subtitle: Text(
-                  //     subtitlesArray[index],
-                  //     style: TextStyle(
-                  //       color: Colors.blueAccent,
-                  //       fontSize: 10.0,
-                  //       fontWeight: FontWeight.bold,
-                  //       fontFamily: "Sans",
-                  //     ),
-                  //   ),
-                  //   trailing: Text(
-                  //     "Testing",
-                  //     style: TextStyle(
-                  //       color: Colors.black,
-                  //       fontSize: 13.0,
-                  //       fontWeight: FontWeight.w300,
-                  //       fontFamily: "Sans",
-                  //     ),
-                  //   ),
-                  // );
                 },
               ))
         ],
