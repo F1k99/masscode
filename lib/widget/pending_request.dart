@@ -24,42 +24,55 @@ class _PendingRequestState extends State<PendingRequest> {
       child: Row(
         children: [
           Container(
-              height: 50,
+              height: 100,
               width: MediaQuery.of(context).size.width,
               child: ListView.builder(
+                physics: NeverScrollableScrollPhysics(),
                 itemCount: titlesArray.length,
                 shrinkWrap: true,
                 itemBuilder: (context, index) {
-                  return ListTile(
-                    tileColor: Colors.white,
-                    title: Text(
+                  return Container(
+                    height: 50,
+                    width: MediaQuery.of(context).size.width,
+                    child: Text(
                       titlesArray[index],
+                      textAlign: TextAlign.center,
                       style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 13.0,
-                        fontWeight: FontWeight.normal,
-                        fontFamily: "Sans",
-                      ),
-                    ),
-                    subtitle: Text(
-                      subtitlesArray[index],
-                      style: TextStyle(
-                        color: Colors.blueAccent,
-                        fontSize: 10.0,
-                        fontWeight: FontWeight.bold,
-                        fontFamily: "Sans",
-                      ),
-                    ),
-                    trailing: Text(
-                      "Testing",
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 13.0,
-                        fontWeight: FontWeight.w300,
-                        fontFamily: "Sans",
-                      ),
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 20),
                     ),
                   );
+                  // return ListTile(
+                  //   tileColor: Colors.white,
+                  //   title: Text(
+                  //     titlesArray[index],
+                  //     style: TextStyle(
+                  //       color: Colors.black,
+                  //       fontSize: 13.0,
+                  //       fontWeight: FontWeight.normal,
+                  //       fontFamily: "Sans",
+                  //     ),
+                  //   ),
+                  //   subtitle: Text(
+                  //     subtitlesArray[index],
+                  //     style: TextStyle(
+                  //       color: Colors.blueAccent,
+                  //       fontSize: 10.0,
+                  //       fontWeight: FontWeight.bold,
+                  //       fontFamily: "Sans",
+                  //     ),
+                  //   ),
+                  //   trailing: Text(
+                  //     "Testing",
+                  //     style: TextStyle(
+                  //       color: Colors.black,
+                  //       fontSize: 13.0,
+                  //       fontWeight: FontWeight.w300,
+                  //       fontFamily: "Sans",
+                  //     ),
+                  //   ),
+                  // );
                 },
               ))
         ],
