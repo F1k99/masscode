@@ -315,30 +315,33 @@ class MainPage extends StatelessWidget {
                             ),
                           ),
                           Row(
-                            children: [
-                              Expanded(
-                                child: Column(
-                                  children: [
-                                    Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          15, 15, 15, 10),
-                                      child: Container(
-                                        width:
-                                            MediaQuery.of(context).size.width,
-                                        height: 100,
-                                        color: Colors.orange,
-                                      ),
-                                    ),
-                                    Container(
-                                      width: MediaQuery.of(context).size.width,
-                                      height: 100,
-                                      color: Colors.orange,
-                                    ),
-                                  ],
-                                ),
-                              )
-                            ],
+                            children: [PendingRequest()],
                           )
+                          // Row(
+                          //   children: [
+                          //     Expanded(
+                          //       child: Column(
+                          //         children: [
+                          //           Padding(
+                          //             padding: EdgeInsetsDirectional.fromSTEB(
+                          //                 15, 15, 15, 10),
+                          //             child: Container(
+                          //               width:
+                          //                   MediaQuery.of(context).size.width,
+                          //               height: 100,
+                          //               color: Colors.orange,
+                          //             ),
+                          //           ),
+                          //           Container(
+                          //             width: MediaQuery.of(context).size.width,
+                          //             height: 100,
+                          //             color: Colors.orange,
+                          //           ),
+                          //         ],
+                          //       ),
+                          //     )
+                          //   ],
+                          // )
                         ],
                       ),
                     ),
