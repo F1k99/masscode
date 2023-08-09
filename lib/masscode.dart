@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:masscode/widget/pending_request.dart';
+import 'package:masscode/widget/testing.dart';
 
 class MainPage extends StatelessWidget {
   const MainPage({super.key});
@@ -164,7 +166,8 @@ class MainPage extends StatelessWidget {
                                 mainAxisSize: MainAxisSize.max,
                                 mainAxisAlignment: MainAxisAlignment.start,
                                 children: [
-                                  Expanded(
+                                  SizedBox(
+                                    height: 100,
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
                                       mainAxisAlignment:
@@ -311,19 +314,31 @@ class MainPage extends StatelessWidget {
                               ],
                             ),
                           ),
-                          Expanded(
-                            child: Padding(
-                              padding: EdgeInsets.fromLTRB(20, 0, 20, 0),
-                              child: Container(
-                                width: MediaQuery.of(context).size.width,
-                                height: 100,
-                                color: Colors.amber,
-                                child: Row(
-                                  children: [Text("Test")],
+                          Row(
+                            children: [
+                              Expanded(
+                                child: Column(
+                                  children: [
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          15, 15, 15, 10),
+                                      child: Container(
+                                        width:
+                                            MediaQuery.of(context).size.width,
+                                        height: 100,
+                                        color: Colors.orange,
+                                      ),
+                                    ),
+                                    Container(
+                                      width: MediaQuery.of(context).size.width,
+                                      height: 100,
+                                      color: Colors.orange,
+                                    ),
+                                  ],
                                 ),
-                              ),
-                            ),
-                          ),
+                              )
+                            ],
+                          )
                         ],
                       ),
                     ),
