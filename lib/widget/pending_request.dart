@@ -53,7 +53,7 @@ class _PendingRequestState extends State<PendingRequest> {
                             topLeft: Radius.circular(18),
                             topRight: Radius.circular(18),
                           ),
-                          color: Colors.grey),
+                          color: Colors.white),
                       child: Row(
                         children: [
                           Column(
@@ -113,24 +113,26 @@ class _PendingRequestState extends State<PendingRequest> {
                               )
                             ],
                           )),
-                          Padding(
-                            padding: EdgeInsets.fromLTRB(0, 0, 15, 0),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Text(
-                                  daysArray[index],
-                                  textAlign: TextAlign.start,
-                                  style: TextStyle(
-                                      color: Colors.black,
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 12),
-                                ),
-                              ],
+                          Expanded(
+                            child: Padding(
+                              padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text(
+                                    daysArray[index],
+                                    textAlign: TextAlign.start,
+                                    style: TextStyle(
+                                        color: Colors.black,
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 14),
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
                           Padding(
-                            padding: EdgeInsets.fromLTRB(0, 0, 15, 0),
+                            padding: EdgeInsets.fromLTRB(0, 0, 20, 0),
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
@@ -138,9 +140,9 @@ class _PendingRequestState extends State<PendingRequest> {
                                   statusArray[index],
                                   textAlign: TextAlign.start,
                                   style: TextStyle(
-                                      color: Colors.black,
+                                      color: Color.fromARGB(200, 87, 99, 108),
                                       fontWeight: FontWeight.bold,
-                                      fontSize: 12),
+                                      fontSize: 14),
                                 ),
                               ],
                             ),

@@ -16,16 +16,17 @@ class _MainPageState extends State<MainPage> {
     return GestureDetector(
       onTap: () => FocusScope.of(context),
       child: Scaffold(
-          backgroundColor: Color.fromARGB(100, 241, 244, 248),
+          backgroundColor: Color.fromARGB(200, 241, 244, 250),
 
           //--------------------------------APP BAR --------------------------------
           appBar: AppBar(
+            backgroundColor: Color.fromARGB(200, 241, 244, 250),
             automaticallyImplyLeading: false,
             leading: IconButton(
               iconSize: 35,
               icon: Icon(
                 Icons.chevron_left_rounded,
-                color: Colors.black,
+                color: Color.fromARGB(200, 20, 24, 27),
               ),
               onPressed: () => MainPage(),
             ),
@@ -33,10 +34,10 @@ class _MainPageState extends State<MainPage> {
             title: Text(
               'Hello, Muhammad !',
               style: TextStyle(
-                color: Colors.black,
-                fontFamily: 'Readex Pro',
-                fontSize: 20,
-              ),
+                  color: Color.fromARGB(200, 20, 24, 27),
+                  fontFamily: 'Readex Pro',
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold),
             ),
             actions: [
               Padding(
@@ -140,9 +141,10 @@ class _MainPageState extends State<MainPage> {
                                                     '7 Days ',
                                                     textAlign: TextAlign.center,
                                                     style: TextStyle(
-                                                      fontSize: 18,
+                                                      fontSize: 20,
                                                       fontFamily: 'Outfit',
-                                                      color: Colors.grey,
+                                                      color: Color.fromARGB(
+                                                          200, 20, 24, 27),
                                                       fontWeight:
                                                           FontWeight.bold,
                                                     ),
@@ -195,11 +197,11 @@ class _MainPageState extends State<MainPage> {
                                                       CircularProgressIndicator(
                                                     strokeWidth: 20,
                                                     value: 0.5,
-                                                    backgroundColor: Colors.red,
+                                                    backgroundColor:
+                                                        Colors.white,
                                                     valueColor:
                                                         AlwaysStoppedAnimation<
-                                                                Color>(
-                                                            Colors.green),
+                                                            Color>(Colors.red),
                                                   ),
                                                 ),
                                                 Positioned(
@@ -211,9 +213,10 @@ class _MainPageState extends State<MainPage> {
                                                     '7 Days',
                                                     textAlign: TextAlign.center,
                                                     style: TextStyle(
-                                                      fontSize: 18,
+                                                      fontSize: 20,
                                                       fontFamily: 'Outfit',
-                                                      color: Colors.grey,
+                                                      color: Color.fromARGB(
+                                                          200, 20, 24, 27),
                                                       fontWeight:
                                                           FontWeight.bold,
                                                     ),
@@ -266,11 +269,12 @@ class _MainPageState extends State<MainPage> {
                                                       CircularProgressIndicator(
                                                     strokeWidth: 20,
                                                     value: 0.5,
-                                                    backgroundColor: Colors.red,
+                                                    backgroundColor:
+                                                        Colors.white,
                                                     valueColor:
                                                         AlwaysStoppedAnimation<
                                                                 Color>(
-                                                            Colors.green),
+                                                            Colors.yellow),
                                                   ),
                                                 ),
                                                 Positioned(
@@ -282,9 +286,10 @@ class _MainPageState extends State<MainPage> {
                                                     '7 Days',
                                                     textAlign: TextAlign.center,
                                                     style: TextStyle(
-                                                      fontSize: 18,
+                                                      fontSize: 20,
                                                       fontFamily: 'Outfit',
-                                                      color: Colors.grey,
+                                                      color: Color.fromARGB(
+                                                          200, 20, 24, 27),
                                                       fontWeight:
                                                           FontWeight.bold,
                                                     ),
@@ -318,14 +323,14 @@ class _MainPageState extends State<MainPage> {
                               ],
                             )),
                             Padding(
-                              padding: const EdgeInsets.fromLTRB(50, 10, 0, 0),
+                              padding: const EdgeInsets.fromLTRB(50, 10, 5, 0),
                               child: Row(
                                 children: [
                                   Text("Pending",
                                       style: TextStyle(
-                                        fontSize: 14,
+                                        fontSize: 15,
                                         fontFamily: 'Readex Pro',
-                                        color: Colors.grey,
+                                        color: Color.fromARGB(500, 87, 99, 108),
                                         fontWeight: FontWeight.bold,
                                       ))
                                 ],
@@ -338,12 +343,13 @@ class _MainPageState extends State<MainPage> {
                               children: [
                                 Expanded(
                                   child: Padding(
-                                    padding: EdgeInsets.fromLTRB(50, 0, 0, 0),
+                                    padding: EdgeInsets.fromLTRB(50, 0, 0, 5),
                                     child: Text("History",
                                         style: TextStyle(
-                                          fontSize: 14,
+                                          fontSize: 15,
                                           fontFamily: 'Readex Pro',
-                                          color: Colors.grey,
+                                          color:
+                                              Color.fromARGB(500, 87, 99, 108),
                                           fontWeight: FontWeight.bold,
                                         )),
                                   ),
@@ -354,7 +360,7 @@ class _MainPageState extends State<MainPage> {
                                       style: TextStyle(
                                         fontSize: 12,
                                         fontFamily: 'Readex Pro',
-                                        color: Colors.grey,
+                                        color: Color.fromARGB(500, 87, 99, 108),
                                         fontWeight: FontWeight.bold,
                                       )),
                                 )
@@ -372,7 +378,17 @@ class _MainPageState extends State<MainPage> {
                                     // Perform action on button press
                                     print('FAB Pressed!');
                                   },
-                                  label: Text("Request Leave"),
+                                  label: Text(
+                                    "Request Leave",
+                                    style: TextStyle(
+                                        fontFamily: 'Readex Pro',
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.w400,
+                                        fontSize: 15),
+                                  ),
+                                  backgroundColor:
+                                      Color.fromARGB(500, 75, 57, 239),
+                                  elevation: 18,
                                   shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(
                                         20), // Adjust the radius as per your requirements
