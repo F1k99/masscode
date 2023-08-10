@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class PendingRequest extends StatefulWidget {
-  const PendingRequest({super.key});
+class LeaveHistory extends StatefulWidget {
+  const LeaveHistory({super.key});
 
   @override
-  State<PendingRequest> createState() => _PendingRequestState();
+  State<LeaveHistory> createState() => _LeaveHistoryState();
 }
 
-class _PendingRequestState extends State<PendingRequest> {
+class _LeaveHistoryState extends State<LeaveHistory> {
   List<String> leaveTypeArray = [
     "Annual Leave",
     "Sick Leave",
@@ -23,14 +23,14 @@ class _PendingRequestState extends State<PendingRequest> {
     "2 Days",
   ];
   List<String> statusArray = [
-    "Pending",
-    "Pending",
+    "Rejected",
+    "Approved",
   ];
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.fromLTRB(0, 0, 0, 5),
+      padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
       child: Row(
         children: [
           Container(
@@ -144,7 +144,7 @@ class _PendingRequestState extends State<PendingRequest> {
                                 ),
                               ],
                             ),
-                          ),
+                          )
                         ],
                       ),
                     ),
