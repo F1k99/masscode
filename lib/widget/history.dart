@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
 class LeaveHistory extends StatefulWidget {
@@ -26,6 +28,29 @@ class _LeaveHistoryState extends State<LeaveHistory> {
     "Rejected",
     "Approved",
   ];
+  //conditions
+  containerStatus(status) => Container(
+        width: 15,
+        height: 90,
+        decoration: BoxDecoration(
+          color: statusArray[status] == "Approved" ? Colors.green : Colors.red,
+          borderRadius: BorderRadius.only(
+            bottomLeft: Radius.circular(25),
+            bottomRight: Radius.circular(0),
+            topLeft: Radius.circular(25),
+            topRight: Radius.circular(0),
+          ),
+        ),
+      );
+  listViewStatus(status) => (Text(
+        statusArray[status],
+        textAlign: TextAlign.start,
+        style: TextStyle(
+            color:
+                statusArray[status] == "Approved" ? Colors.green : Colors.red,
+            fontWeight: FontWeight.bold,
+            fontSize: 14),
+      ));
 
   @override
   Widget build(BuildContext context) {
@@ -58,22 +83,21 @@ class _LeaveHistoryState extends State<LeaveHistory> {
                         children: [
                           Column(
                             children: [
-                              Padding(
-                                padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
-                                child: Container(
-                                  width: 15,
-                                  height: 90,
-                                  decoration: BoxDecoration(
-                                    color: Colors.orange,
-                                    borderRadius: BorderRadius.only(
-                                      bottomLeft: Radius.circular(25),
-                                      bottomRight: Radius.circular(0),
-                                      topLeft: Radius.circular(25),
-                                      topRight: Radius.circular(0),
-                                    ),
-                                  ),
-                                ),
-                              )
+                              containerStatus(index),
+
+                              // child: Container(
+                              //   width: 15,
+                              //   height: 90,
+                              //   decoration: BoxDecoration(
+                              //     color: Colors.green,
+                              //     borderRadius: BorderRadius.only(
+                              //       bottomLeft: Radius.circular(25),
+                              //       bottomRight: Radius.circular(0),
+                              //       topLeft: Radius.circular(25),
+                              //       topRight: Radius.circular(0),
+                              //     ),
+                              //   ),
+                              // ),
                             ],
                           ),
                           Expanded(
@@ -135,16 +159,7 @@ class _LeaveHistoryState extends State<LeaveHistory> {
                             padding: EdgeInsets.fromLTRB(0, 0, 20, 0),
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Text(
-                                  statusArray[index],
-                                  textAlign: TextAlign.start,
-                                  style: TextStyle(
-                                      color: Colors.green,
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 14),
-                                ),
-                              ],
+                              children: [listViewStatus(index)],
                             ),
                           )
                         ],

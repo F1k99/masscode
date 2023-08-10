@@ -32,11 +32,11 @@ class _MainPageState extends State<MainPage> {
             ),
             //Change when setup backend
             title: Text(
-              'Hello, Muhammad !',
+              'Hello, Masscoder !',
               style: TextStyle(
                   color: Color.fromARGB(200, 20, 24, 27),
                   fontFamily: 'Readex Pro',
-                  fontSize: 20,
+                  fontSize: 22,
                   fontWeight: FontWeight.bold),
             ),
             actions: [
@@ -80,12 +80,12 @@ class _MainPageState extends State<MainPage> {
                             Align(
                               alignment: Alignment(0, 0),
                               child: TabBar(
-                                labelColor: Color(0xFF1F86D1),
+                                labelColor: Color.fromARGB(500, 75, 57, 239),
                                 unselectedLabelColor: Colors.grey,
                                 labelStyle: TextStyle(
-                                  fontFamily: 'Readex Pro',
-                                  fontSize: 13,
-                                ),
+                                    fontFamily: 'Readex Pro',
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.bold),
                                 tabs: [
                                   Tab(
                                     text: 'Annual Leave',
@@ -123,7 +123,7 @@ class _MainPageState extends State<MainPage> {
                                                   child:
                                                       CircularProgressIndicator(
                                                     strokeWidth: 20,
-                                                    value: 0.5,
+                                                    value: 3 / 14,
                                                     backgroundColor:
                                                         Colors.white,
                                                     valueColor:
@@ -136,18 +136,34 @@ class _MainPageState extends State<MainPage> {
                                                   bottom: 0,
                                                   left: 0,
                                                   right: 0,
-                                                  top: 90,
-                                                  child: Text(
-                                                    '7 Days ',
-                                                    textAlign: TextAlign.center,
-                                                    style: TextStyle(
-                                                      fontSize: 20,
-                                                      fontFamily: 'Outfit',
-                                                      color: Color.fromARGB(
-                                                          200, 20, 24, 27),
-                                                      fontWeight:
-                                                          FontWeight.bold,
-                                                    ),
+                                                  top: 80,
+                                                  child: Column(
+                                                    children: [
+                                                      Text(
+                                                        "Annual Leave",
+                                                        style: TextStyle(
+                                                          fontSize: 15,
+                                                          fontFamily: 'Outfit',
+                                                          color: Color.fromARGB(
+                                                              200, 20, 24, 27),
+                                                          fontWeight:
+                                                              FontWeight.bold,
+                                                        ),
+                                                      ),
+                                                      Text(
+                                                        '11 Days ',
+                                                        textAlign:
+                                                            TextAlign.center,
+                                                        style: TextStyle(
+                                                          fontSize: 20,
+                                                          fontFamily: 'Outfit',
+                                                          color: Color.fromARGB(
+                                                              200, 20, 24, 27),
+                                                          fontWeight:
+                                                              FontWeight.bold,
+                                                        ),
+                                                      ),
+                                                    ],
                                                   ),
                                                 ),
                                               ],
@@ -162,9 +178,9 @@ class _MainPageState extends State<MainPage> {
                                       //Change when setup backend
                                       children: [
                                         Text(
-                                          'Balance : 10/15',
+                                          'Balance : 11/14',
                                           style: TextStyle(
-                                            fontSize: 16,
+                                            fontSize: 18,
                                             fontFamily: 'Readex Pro',
                                             color: Colors.black,
                                             fontWeight: FontWeight.bold,
@@ -196,7 +212,7 @@ class _MainPageState extends State<MainPage> {
                                                   child:
                                                       CircularProgressIndicator(
                                                     strokeWidth: 20,
-                                                    value: 0.5,
+                                                    value: 5 / 20,
                                                     backgroundColor:
                                                         Colors.white,
                                                     valueColor:
@@ -208,18 +224,34 @@ class _MainPageState extends State<MainPage> {
                                                   bottom: 0,
                                                   left: 0,
                                                   right: 0,
-                                                  top: 90,
-                                                  child: Text(
-                                                    '7 Days',
-                                                    textAlign: TextAlign.center,
-                                                    style: TextStyle(
-                                                      fontSize: 20,
-                                                      fontFamily: 'Outfit',
-                                                      color: Color.fromARGB(
-                                                          200, 20, 24, 27),
-                                                      fontWeight:
-                                                          FontWeight.bold,
-                                                    ),
+                                                  top: 80,
+                                                  child: Column(
+                                                    children: [
+                                                      Text(
+                                                        "Sick Leave",
+                                                        style: TextStyle(
+                                                          fontSize: 15,
+                                                          fontFamily: 'Outfit',
+                                                          color: Color.fromARGB(
+                                                              200, 20, 24, 27),
+                                                          fontWeight:
+                                                              FontWeight.bold,
+                                                        ),
+                                                      ),
+                                                      Text(
+                                                        '15 Days ',
+                                                        textAlign:
+                                                            TextAlign.center,
+                                                        style: TextStyle(
+                                                          fontSize: 20,
+                                                          fontFamily: 'Outfit',
+                                                          color: Color.fromARGB(
+                                                              200, 20, 24, 27),
+                                                          fontWeight:
+                                                              FontWeight.bold,
+                                                        ),
+                                                      ),
+                                                    ],
                                                   ),
                                                 ),
                                               ],
@@ -235,9 +267,9 @@ class _MainPageState extends State<MainPage> {
                                       //Change when setup backend
                                       children: [
                                         Text(
-                                          'Balance : 10/15',
+                                          'Balance : 15/20',
                                           style: TextStyle(
-                                            fontSize: 16,
+                                            fontSize: 18,
                                             fontFamily: 'Readex Pro',
                                             color: Colors.black,
                                             fontWeight: FontWeight.bold,
@@ -268,7 +300,7 @@ class _MainPageState extends State<MainPage> {
                                                   child:
                                                       CircularProgressIndicator(
                                                     strokeWidth: 20,
-                                                    value: 0.5,
+                                                    value: 5 / 60,
                                                     backgroundColor:
                                                         Colors.white,
                                                     valueColor:
@@ -281,18 +313,34 @@ class _MainPageState extends State<MainPage> {
                                                   bottom: 0,
                                                   left: 0,
                                                   right: 0,
-                                                  top: 90,
-                                                  child: Text(
-                                                    '7 Days',
-                                                    textAlign: TextAlign.center,
-                                                    style: TextStyle(
-                                                      fontSize: 20,
-                                                      fontFamily: 'Outfit',
-                                                      color: Color.fromARGB(
-                                                          200, 20, 24, 27),
-                                                      fontWeight:
-                                                          FontWeight.bold,
-                                                    ),
+                                                  top: 80,
+                                                  child: Column(
+                                                    children: [
+                                                      Text(
+                                                        "Hospitalization",
+                                                        style: TextStyle(
+                                                          fontSize: 15,
+                                                          fontFamily: 'Outfit',
+                                                          color: Color.fromARGB(
+                                                              200, 20, 24, 27),
+                                                          fontWeight:
+                                                              FontWeight.bold,
+                                                        ),
+                                                      ),
+                                                      Text(
+                                                        '55 Days ',
+                                                        textAlign:
+                                                            TextAlign.center,
+                                                        style: TextStyle(
+                                                          fontSize: 20,
+                                                          fontFamily: 'Outfit',
+                                                          color: Color.fromARGB(
+                                                              200, 20, 24, 27),
+                                                          fontWeight:
+                                                              FontWeight.bold,
+                                                        ),
+                                                      ),
+                                                    ],
                                                   ),
                                                 ),
                                               ],
@@ -308,9 +356,9 @@ class _MainPageState extends State<MainPage> {
                                       //Change when setup backend
                                       children: [
                                         Text(
-                                          'Balance : 10/15',
+                                          'Balance : 55/60',
                                           style: TextStyle(
-                                            fontSize: 16,
+                                            fontSize: 18,
                                             fontFamily: 'Readex Pro',
                                             color: Colors.black,
                                             fontWeight: FontWeight.bold,
