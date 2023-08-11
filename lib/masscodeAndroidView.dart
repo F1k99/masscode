@@ -1,26 +1,29 @@
 import 'package:flutter/material.dart';
 import 'package:masscode/widget/history.dart';
+import 'package:masscode/widget/history_android.dart';
 import 'package:masscode/widget/pending_request.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:masscode/widget/pending_request_android.dart';
+import 'package:masscode/widget/requestLeaveWidget.dart';
 
-class MainPage extends StatefulWidget {
-  const MainPage({super.key});
+class MainPageAndroid extends StatefulWidget {
+  const MainPageAndroid({super.key});
 
   @override
-  State<MainPage> createState() => _MainPageState();
+  State<MainPageAndroid> createState() => _MainPageAndroidState();
 }
 
-class _MainPageState extends State<MainPage> {
+class _MainPageAndroidState extends State<MainPageAndroid> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () => FocusScope.of(context),
       child: Scaffold(
-          backgroundColor: Color.fromARGB(200, 241, 244, 250),
+          backgroundColor: Color.fromARGB(255, 241, 244, 250),
 
           //--------------------------------APP BAR --------------------------------
           appBar: AppBar(
-            backgroundColor: Color.fromARGB(200, 241, 244, 250),
+            backgroundColor: Color.fromARGB(500, 241, 244, 250),
             automaticallyImplyLeading: false,
             leading: IconButton(
               iconSize: 35,
@@ -28,7 +31,7 @@ class _MainPageState extends State<MainPage> {
                 Icons.chevron_left_rounded,
                 color: Color.fromARGB(200, 20, 24, 27),
               ),
-              onPressed: () => MainPage(),
+              onPressed: () => MainPageAndroid(),
             ),
             //Change when setup backend
             title: Text(
@@ -84,7 +87,7 @@ class _MainPageState extends State<MainPage> {
                                 unselectedLabelColor: Colors.grey,
                                 labelStyle: TextStyle(
                                     fontFamily: 'Readex Pro',
-                                    fontSize: 15,
+                                    fontSize: 14,
                                     fontWeight: FontWeight.bold),
                                 tabs: [
                                   Tab(
@@ -94,7 +97,7 @@ class _MainPageState extends State<MainPage> {
                                     text: 'Sick Leave',
                                   ),
                                   Tab(
-                                    text: 'Hospitalization',
+                                    text: 'Hospitalisation',
                                   ),
                                 ],
                               ),
@@ -102,7 +105,7 @@ class _MainPageState extends State<MainPage> {
                             Expanded(
                                 child: TabBarView(
                               children: [
-                                //Tabview 1
+                                // Tabview 1
                                 Column(
                                   mainAxisSize: MainAxisSize.max,
                                   mainAxisAlignment: MainAxisAlignment.start,
@@ -113,61 +116,56 @@ class _MainPageState extends State<MainPage> {
                                         mainAxisAlignment:
                                             MainAxisAlignment.center,
                                         children: <Widget>[
-                                          SizedBox(
-                                            height: 200,
-                                            child: Stack(
-                                              children: <Widget>[
-                                                Container(
-                                                  width: 200,
-                                                  height: 200,
-                                                  child:
-                                                      CircularProgressIndicator(
-                                                    strokeWidth: 20,
-                                                    value: 3 / 14,
-                                                    backgroundColor:
-                                                        Colors.white,
-                                                    valueColor:
-                                                        AlwaysStoppedAnimation<
-                                                                Color>(
-                                                            Colors.green),
-                                                  ),
+                                          Stack(
+                                            children: <Widget>[
+                                              Container(
+                                                width: 140,
+                                                height: 140,
+                                                child:
+                                                    CircularProgressIndicator(
+                                                  strokeWidth: 15,
+                                                  value: 3 / 14,
+                                                  backgroundColor: Colors.white,
+                                                  valueColor:
+                                                      AlwaysStoppedAnimation<
+                                                          Color>(Colors.green),
                                                 ),
-                                                Positioned(
-                                                  bottom: 0,
-                                                  left: 0,
-                                                  right: 0,
-                                                  top: 80,
-                                                  child: Column(
-                                                    children: [
-                                                      Text(
-                                                        "Annual Leave",
-                                                        style: TextStyle(
-                                                          fontSize: 15,
-                                                          fontFamily: 'Outfit',
-                                                          color: Color.fromARGB(
-                                                              200, 20, 24, 27),
-                                                          fontWeight:
-                                                              FontWeight.bold,
-                                                        ),
+                                              ),
+                                              Positioned(
+                                                bottom: 0,
+                                                left: 0,
+                                                right: 0,
+                                                top: 55,
+                                                child: Column(
+                                                  children: [
+                                                    Text(
+                                                      "Annual Leave",
+                                                      style: TextStyle(
+                                                        fontSize: 12,
+                                                        fontFamily: 'Outfit',
+                                                        color: Color.fromARGB(
+                                                            500, 20, 24, 27),
+                                                        fontWeight:
+                                                            FontWeight.bold,
                                                       ),
-                                                      Text(
-                                                        '11 Days ',
-                                                        textAlign:
-                                                            TextAlign.center,
-                                                        style: TextStyle(
-                                                          fontSize: 20,
-                                                          fontFamily: 'Outfit',
-                                                          color: Color.fromARGB(
-                                                              200, 20, 24, 27),
-                                                          fontWeight:
-                                                              FontWeight.bold,
-                                                        ),
+                                                    ),
+                                                    Text(
+                                                      '11 Days ',
+                                                      textAlign:
+                                                          TextAlign.center,
+                                                      style: TextStyle(
+                                                        fontSize: 14,
+                                                        fontFamily: 'Outfit',
+                                                        color: Color.fromARGB(
+                                                            500, 20, 24, 27),
+                                                        fontWeight:
+                                                            FontWeight.bold,
                                                       ),
-                                                    ],
-                                                  ),
+                                                    ),
+                                                  ],
                                                 ),
-                                              ],
-                                            ),
+                                              ),
+                                            ],
                                           ),
                                         ],
                                       ),
@@ -180,7 +178,7 @@ class _MainPageState extends State<MainPage> {
                                         Text(
                                           'Balance : 11/14',
                                           style: TextStyle(
-                                            fontSize: 18,
+                                            fontSize: 14,
                                             fontFamily: 'Readex Pro',
                                             color: Colors.black,
                                             fontWeight: FontWeight.bold,
@@ -191,7 +189,7 @@ class _MainPageState extends State<MainPage> {
                                   ],
                                 ),
 
-                                //Tabview 2
+                                // Tabview 2
                                 Column(
                                   mainAxisSize: MainAxisSize.max,
                                   mainAxisAlignment: MainAxisAlignment.start,
@@ -202,66 +200,61 @@ class _MainPageState extends State<MainPage> {
                                         mainAxisAlignment:
                                             MainAxisAlignment.center,
                                         children: <Widget>[
-                                          SizedBox(
-                                            height: 200,
-                                            child: Stack(
-                                              children: <Widget>[
-                                                Container(
-                                                  width: 200,
-                                                  height: 200,
-                                                  child:
-                                                      CircularProgressIndicator(
-                                                    strokeWidth: 20,
-                                                    value: 5 / 20,
-                                                    backgroundColor:
-                                                        Colors.white,
-                                                    valueColor:
-                                                        AlwaysStoppedAnimation<
-                                                            Color>(Colors.red),
-                                                  ),
+                                          Stack(
+                                            children: <Widget>[
+                                              Container(
+                                                width: 140,
+                                                height: 140,
+                                                child:
+                                                    CircularProgressIndicator(
+                                                  strokeWidth: 15,
+                                                  value: 5 / 20,
+                                                  backgroundColor: Colors.white,
+                                                  valueColor:
+                                                      AlwaysStoppedAnimation<
+                                                          Color>(Colors.red),
                                                 ),
-                                                Positioned(
-                                                  bottom: 0,
-                                                  left: 0,
-                                                  right: 0,
-                                                  top: 80,
-                                                  child: Column(
-                                                    children: [
-                                                      Text(
-                                                        "Sick Leave",
-                                                        style: TextStyle(
-                                                          fontSize: 15,
-                                                          fontFamily: 'Outfit',
-                                                          color: Color.fromARGB(
-                                                              200, 20, 24, 27),
-                                                          fontWeight:
-                                                              FontWeight.bold,
-                                                        ),
+                                              ),
+                                              Positioned(
+                                                bottom: 0,
+                                                left: 0,
+                                                right: 0,
+                                                top: 55,
+                                                child: Column(
+                                                  children: [
+                                                    Text(
+                                                      "Sick Leave",
+                                                      style: TextStyle(
+                                                        fontSize: 12,
+                                                        fontFamily: 'Outfit',
+                                                        color: Color.fromARGB(
+                                                            500, 20, 24, 27),
+                                                        fontWeight:
+                                                            FontWeight.bold,
                                                       ),
-                                                      Text(
-                                                        '15 Days ',
-                                                        textAlign:
-                                                            TextAlign.center,
-                                                        style: TextStyle(
-                                                          fontSize: 20,
-                                                          fontFamily: 'Outfit',
-                                                          color: Color.fromARGB(
-                                                              200, 20, 24, 27),
-                                                          fontWeight:
-                                                              FontWeight.bold,
-                                                        ),
+                                                    ),
+                                                    Text(
+                                                      '15 Days ',
+                                                      textAlign:
+                                                          TextAlign.center,
+                                                      style: TextStyle(
+                                                        fontSize: 14,
+                                                        fontFamily: 'Outfit',
+                                                        color: Color.fromARGB(
+                                                            500, 20, 24, 27),
+                                                        fontWeight:
+                                                            FontWeight.bold,
                                                       ),
-                                                    ],
-                                                  ),
+                                                    ),
+                                                  ],
                                                 ),
-                                              ],
-                                            ),
+                                              ),
+                                            ],
                                           ),
                                         ],
                                       ),
                                     ),
                                     Row(
-                                      mainAxisSize: MainAxisSize.max,
                                       mainAxisAlignment:
                                           MainAxisAlignment.center,
                                       //Change when setup backend
@@ -269,7 +262,7 @@ class _MainPageState extends State<MainPage> {
                                         Text(
                                           'Balance : 15/20',
                                           style: TextStyle(
-                                            fontSize: 18,
+                                            fontSize: 14,
                                             fontFamily: 'Readex Pro',
                                             color: Colors.black,
                                             fontWeight: FontWeight.bold,
@@ -290,67 +283,61 @@ class _MainPageState extends State<MainPage> {
                                         mainAxisAlignment:
                                             MainAxisAlignment.center,
                                         children: <Widget>[
-                                          SizedBox(
-                                            height: 200,
-                                            child: Stack(
-                                              children: <Widget>[
-                                                Container(
-                                                  width: 200,
-                                                  height: 200,
-                                                  child:
-                                                      CircularProgressIndicator(
-                                                    strokeWidth: 20,
-                                                    value: 5 / 60,
-                                                    backgroundColor:
-                                                        Colors.white,
-                                                    valueColor:
-                                                        AlwaysStoppedAnimation<
-                                                                Color>(
-                                                            Colors.yellow),
-                                                  ),
+                                          Stack(
+                                            children: <Widget>[
+                                              Container(
+                                                width: 140,
+                                                height: 140,
+                                                child:
+                                                    CircularProgressIndicator(
+                                                  strokeWidth: 15,
+                                                  value: 5 / 60,
+                                                  backgroundColor: Colors.white,
+                                                  valueColor:
+                                                      AlwaysStoppedAnimation<
+                                                          Color>(Colors.yellow),
                                                 ),
-                                                Positioned(
-                                                  bottom: 0,
-                                                  left: 0,
-                                                  right: 0,
-                                                  top: 80,
-                                                  child: Column(
-                                                    children: [
-                                                      Text(
-                                                        "Hospitalization",
-                                                        style: TextStyle(
-                                                          fontSize: 15,
-                                                          fontFamily: 'Outfit',
-                                                          color: Color.fromARGB(
-                                                              200, 20, 24, 27),
-                                                          fontWeight:
-                                                              FontWeight.bold,
-                                                        ),
+                                              ),
+                                              Positioned(
+                                                bottom: 0,
+                                                left: 0,
+                                                right: 0,
+                                                top: 55,
+                                                child: Column(
+                                                  children: [
+                                                    Text(
+                                                      "Hospitalisation",
+                                                      style: TextStyle(
+                                                        fontSize: 12,
+                                                        fontFamily: 'Outfit',
+                                                        color: Color.fromARGB(
+                                                            500, 20, 24, 27),
+                                                        fontWeight:
+                                                            FontWeight.bold,
                                                       ),
-                                                      Text(
-                                                        '55 Days ',
-                                                        textAlign:
-                                                            TextAlign.center,
-                                                        style: TextStyle(
-                                                          fontSize: 20,
-                                                          fontFamily: 'Outfit',
-                                                          color: Color.fromARGB(
-                                                              200, 20, 24, 27),
-                                                          fontWeight:
-                                                              FontWeight.bold,
-                                                        ),
+                                                    ),
+                                                    Text(
+                                                      '55 Days ',
+                                                      textAlign:
+                                                          TextAlign.center,
+                                                      style: TextStyle(
+                                                        fontSize: 14,
+                                                        fontFamily: 'Outfit',
+                                                        color: Color.fromARGB(
+                                                            500, 20, 24, 27),
+                                                        fontWeight:
+                                                            FontWeight.bold,
                                                       ),
-                                                    ],
-                                                  ),
+                                                    ),
+                                                  ],
                                                 ),
-                                              ],
-                                            ),
+                                              ),
+                                            ],
                                           ),
                                         ],
                                       ),
                                     ),
                                     Row(
-                                      mainAxisSize: MainAxisSize.max,
                                       mainAxisAlignment:
                                           MainAxisAlignment.center,
                                       //Change when setup backend
@@ -358,7 +345,7 @@ class _MainPageState extends State<MainPage> {
                                         Text(
                                           'Balance : 55/60',
                                           style: TextStyle(
-                                            fontSize: 18,
+                                            fontSize: 14,
                                             fontFamily: 'Readex Pro',
                                             color: Colors.black,
                                             fontWeight: FontWeight.bold,
@@ -376,7 +363,7 @@ class _MainPageState extends State<MainPage> {
                                 children: [
                                   Text("Pending",
                                       style: TextStyle(
-                                        fontSize: 15,
+                                        fontSize: 13,
                                         fontFamily: 'Readex Pro',
                                         color: Color.fromARGB(500, 87, 99, 108),
                                         fontWeight: FontWeight.bold,
@@ -385,7 +372,7 @@ class _MainPageState extends State<MainPage> {
                               ),
                             ),
                             Row(
-                              children: [PendingRequest()],
+                              children: [PendingRequestAndroid()],
                             ),
                             Row(
                               children: [
@@ -394,7 +381,7 @@ class _MainPageState extends State<MainPage> {
                                     padding: EdgeInsets.fromLTRB(50, 0, 0, 5),
                                     child: Text("History",
                                         style: TextStyle(
-                                          fontSize: 15,
+                                          fontSize: 13,
                                           fontFamily: 'Readex Pro',
                                           color:
                                               Color.fromARGB(500, 87, 99, 108),
@@ -406,7 +393,7 @@ class _MainPageState extends State<MainPage> {
                                   padding: EdgeInsets.fromLTRB(0, 0, 50, 0),
                                   child: Text("Show all",
                                       style: TextStyle(
-                                        fontSize: 12,
+                                        fontSize: 10,
                                         fontFamily: 'Readex Pro',
                                         color: Color.fromARGB(500, 87, 99, 108),
                                         fontWeight: FontWeight.bold,
@@ -415,16 +402,21 @@ class _MainPageState extends State<MainPage> {
                               ],
                             ),
                             Row(
-                              children: [LeaveHistory()],
+                              children: [LeaveHistoryAndroid()],
                             ),
                             SizedBox(
                               width: MediaQuery.of(context).size.width,
                               child: Padding(
                                 padding: EdgeInsets.fromLTRB(50, 10, 50, 10),
                                 child: FloatingActionButton.extended(
-                                  onPressed: () {
-                                    // Perform action on button press
-                                    print('FAB Pressed!');
+                                  onPressed: () async {
+                                    await showModalBottomSheet(
+                                        context: context,
+                                        isScrollControlled: true,
+                                        backgroundColor: Colors.transparent,
+                                        builder: (context) {
+                                          return RequestLeave();
+                                        }).then((value) => setState(() {}));
                                   },
                                   label: Text(
                                     "Request Leave",

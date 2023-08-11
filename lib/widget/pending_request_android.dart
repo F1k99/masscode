@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class LeaveHistory extends StatefulWidget {
-  const LeaveHistory({super.key});
+class PendingRequestAndroid extends StatefulWidget {
+  const PendingRequestAndroid({super.key});
 
   @override
-  State<LeaveHistory> createState() => _LeaveHistoryState();
+  State<PendingRequestAndroid> createState() => _PendingRequestAndroidState();
 }
 
-class _LeaveHistoryState extends State<LeaveHistory> {
+class _PendingRequestAndroidState extends State<PendingRequestAndroid> {
   List<String> leaveTypeArray = [
     "Annual Leave",
     "Sick Leave",
@@ -23,42 +23,18 @@ class _LeaveHistoryState extends State<LeaveHistory> {
     "2 Days",
   ];
   List<String> statusArray = [
-    "Rejected",
-    "Approved",
+    "Pending",
+    "Pending",
   ];
-  //conditions for container color
-  containerStatus(status) => Container(
-        width: 15,
-        height: 90,
-        decoration: BoxDecoration(
-          color: statusArray[status] == "Approved" ? Colors.green : Colors.red,
-          borderRadius: BorderRadius.only(
-            bottomLeft: Radius.circular(25),
-            bottomRight: Radius.circular(0),
-            topLeft: Radius.circular(25),
-            topRight: Radius.circular(0),
-          ),
-        ),
-      );
-  //conditions for text color
-  listViewStatus(status) => (Text(
-        statusArray[status],
-        textAlign: TextAlign.start,
-        style: TextStyle(
-            color:
-                statusArray[status] == "Approved" ? Colors.green : Colors.red,
-            fontWeight: FontWeight.bold,
-            fontSize: 14),
-      ));
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
+      padding: EdgeInsets.fromLTRB(0, 0, 0, 5),
       child: Row(
         children: [
           Container(
-              height: 200,
+              height: 160,
               width: MediaQuery.of(context).size.width,
               child: ListView.builder(
                 physics: NeverScrollableScrollPhysics(),
@@ -68,7 +44,7 @@ class _LeaveHistoryState extends State<LeaveHistory> {
                   return Padding(
                     padding: EdgeInsets.fromLTRB(25, 0, 25, 15),
                     child: Container(
-                      height: 90,
+                      height: 70,
                       width: MediaQuery.of(context).size.width,
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.only(
@@ -82,8 +58,22 @@ class _LeaveHistoryState extends State<LeaveHistory> {
                         children: [
                           Column(
                             children: [
-                              //Condition
-                              containerStatus(index),
+                              Padding(
+                                padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
+                                child: Container(
+                                  width: 15,
+                                  height: 70,
+                                  decoration: BoxDecoration(
+                                    color: Colors.orange,
+                                    borderRadius: BorderRadius.only(
+                                      bottomLeft: Radius.circular(25),
+                                      bottomRight: Radius.circular(0),
+                                      topLeft: Radius.circular(25),
+                                      topRight: Radius.circular(0),
+                                    ),
+                                  ),
+                                ),
+                              )
                             ],
                           ),
                           Expanded(
@@ -101,7 +91,7 @@ class _LeaveHistoryState extends State<LeaveHistory> {
                                           fontFamily: 'Readex Pro',
                                           color: Colors.black,
                                           fontWeight: FontWeight.bold,
-                                          fontSize: 17),
+                                          fontSize: 16),
                                     ),
                                   )
                                 ],
@@ -123,31 +113,38 @@ class _LeaveHistoryState extends State<LeaveHistory> {
                               )
                             ],
                           )),
-                          Expanded(
-                            child: Padding(
-                              padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Text(
-                                    daysArray[index],
-                                    textAlign: TextAlign.start,
-                                    style: TextStyle(
-                                        color: Colors.black,
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 14),
-                                  ),
-                                ],
-                              ),
+                          Padding(
+                            padding: EdgeInsets.fromLTRB(0, 0, 25, 0),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text(
+                                  daysArray[index],
+                                  textAlign: TextAlign.start,
+                                  style: TextStyle(
+                                      color: Colors.black,
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 13),
+                                ),
+                              ],
                             ),
                           ),
                           Padding(
                             padding: EdgeInsets.fromLTRB(0, 0, 20, 0),
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
-                              children: [listViewStatus(index)],
+                              children: [
+                                Text(
+                                  statusArray[index],
+                                  textAlign: TextAlign.start,
+                                  style: TextStyle(
+                                      color: Color.fromARGB(200, 87, 99, 108),
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 13),
+                                ),
+                              ],
                             ),
-                          )
+                          ),
                         ],
                       ),
                     ),
