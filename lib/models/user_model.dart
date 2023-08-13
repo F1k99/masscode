@@ -1,7 +1,7 @@
 class User {
   final String id;
   final String name;
-  final double AnnualLeaveBalance;
+  final int AnnualLeaveBalance;
   final int SickLeaveBalance;
   final int HospitalisationBalance;
   final int TotalAnnualLeave;

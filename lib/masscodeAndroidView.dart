@@ -5,6 +5,7 @@ import 'package:masscode/widget/pending_request.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:masscode/widget/pending_request_android.dart';
 import 'package:masscode/widget/requestLeaveWidget.dart';
+import 'models/user_model.dart';
 
 class MainPageAndroid extends StatefulWidget {
   const MainPageAndroid({super.key});
@@ -14,6 +15,18 @@ class MainPageAndroid extends StatefulWidget {
 }
 
 class _MainPageAndroidState extends State<MainPageAndroid> {
+  //---------------------------------------DATA-------------------------------//
+  User user = User(
+    id: '1',
+    name: 'Muhammad Salman',
+    AnnualLeaveBalance: 10,
+    SickLeaveBalance: 18,
+    HospitalisationBalance: 5,
+    TotalAnnualLeave: 15,
+    TotalSickLeave: 20,
+    TotalHospitalisation: 60,
+  );
+// ---------------------------------------------------------------------------//
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -35,7 +48,7 @@ class _MainPageAndroidState extends State<MainPageAndroid> {
             ),
             //Change when setup backend
             title: Text(
-              'Hello, Masscoder !',
+              'Hello, ${user.name} !',
               style: TextStyle(
                   color: Color.fromARGB(200, 20, 24, 27),
                   fontFamily: 'Readex Pro',
@@ -124,7 +137,10 @@ class _MainPageAndroidState extends State<MainPageAndroid> {
                                                 child:
                                                     CircularProgressIndicator(
                                                   strokeWidth: 15,
-                                                  value: 3 / 14,
+                                                  value: ((user
+                                                              .TotalAnnualLeave -
+                                                          user.AnnualLeaveBalance) /
+                                                      user.TotalAnnualLeave),
                                                   backgroundColor: Colors.white,
                                                   valueColor:
                                                       AlwaysStoppedAnimation<
@@ -150,7 +166,7 @@ class _MainPageAndroidState extends State<MainPageAndroid> {
                                                       ),
                                                     ),
                                                     Text(
-                                                      '11 Days ',
+                                                      '${user.AnnualLeaveBalance} Days ',
                                                       textAlign:
                                                           TextAlign.center,
                                                       style: TextStyle(
@@ -176,7 +192,7 @@ class _MainPageAndroidState extends State<MainPageAndroid> {
                                       //Change when setup backend
                                       children: [
                                         Text(
-                                          'Balance : 11/14',
+                                          'Balance : ${user.AnnualLeaveBalance}/${user.TotalAnnualLeave}',
                                           style: TextStyle(
                                             fontSize: 14,
                                             fontFamily: 'Readex Pro',
@@ -208,7 +224,9 @@ class _MainPageAndroidState extends State<MainPageAndroid> {
                                                 child:
                                                     CircularProgressIndicator(
                                                   strokeWidth: 15,
-                                                  value: 5 / 20,
+                                                  value: ((user.TotalSickLeave -
+                                                          user.SickLeaveBalance) /
+                                                      user.TotalSickLeave),
                                                   backgroundColor: Colors.white,
                                                   valueColor:
                                                       AlwaysStoppedAnimation<
@@ -234,7 +252,7 @@ class _MainPageAndroidState extends State<MainPageAndroid> {
                                                       ),
                                                     ),
                                                     Text(
-                                                      '15 Days ',
+                                                      '${user.SickLeaveBalance} Days',
                                                       textAlign:
                                                           TextAlign.center,
                                                       style: TextStyle(
@@ -260,7 +278,7 @@ class _MainPageAndroidState extends State<MainPageAndroid> {
                                       //Change when setup backend
                                       children: [
                                         Text(
-                                          'Balance : 15/20',
+                                          'Balance : ${user.SickLeaveBalance}/${user.TotalSickLeave}',
                                           style: TextStyle(
                                             fontSize: 14,
                                             fontFamily: 'Readex Pro',
@@ -291,7 +309,10 @@ class _MainPageAndroidState extends State<MainPageAndroid> {
                                                 child:
                                                     CircularProgressIndicator(
                                                   strokeWidth: 15,
-                                                  value: 5 / 60,
+                                                  value: ((user
+                                                              .TotalHospitalisation -
+                                                          user.HospitalisationBalance) /
+                                                      user.TotalHospitalisation),
                                                   backgroundColor: Colors.white,
                                                   valueColor:
                                                       AlwaysStoppedAnimation<
@@ -317,7 +338,7 @@ class _MainPageAndroidState extends State<MainPageAndroid> {
                                                       ),
                                                     ),
                                                     Text(
-                                                      '55 Days ',
+                                                      '${user.HospitalisationBalance} Days ',
                                                       textAlign:
                                                           TextAlign.center,
                                                       style: TextStyle(
@@ -343,7 +364,7 @@ class _MainPageAndroidState extends State<MainPageAndroid> {
                                       //Change when setup backend
                                       children: [
                                         Text(
-                                          'Balance : 55/60',
+                                          'Balance : ${user.HospitalisationBalance}/${user.TotalHospitalisation}',
                                           style: TextStyle(
                                             fontSize: 14,
                                             fontFamily: 'Readex Pro',

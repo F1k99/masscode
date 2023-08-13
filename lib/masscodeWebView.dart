@@ -16,12 +16,12 @@ class _MainPageWebState extends State<MainPageWeb> {
   User user = User(
     id: '1',
     name: 'Muhammad Salman',
-    AnnualLeaveBalance: 5,
-    SickLeaveBalance: 10,
-    HospitalisationBalance: 10,
+    AnnualLeaveBalance: 10,
+    SickLeaveBalance: 18,
+    HospitalisationBalance: 5,
     TotalAnnualLeave: 15,
-    TotalSickLeave: 10,
-    TotalHospitalisation: 10,
+    TotalSickLeave: 20,
+    TotalHospitalisation: 60,
   );
 // ---------------------------------------------------------------------------//
   @override
@@ -228,7 +228,10 @@ class _MainPageWebState extends State<MainPageWeb> {
                                                   child:
                                                       CircularProgressIndicator(
                                                     strokeWidth: 20,
-                                                    value: 5 / 20,
+                                                    value: ((user
+                                                                .TotalSickLeave -
+                                                            user.SickLeaveBalance) /
+                                                        user.TotalSickLeave),
                                                     backgroundColor:
                                                         Colors.white,
                                                     valueColor:
@@ -255,7 +258,7 @@ class _MainPageWebState extends State<MainPageWeb> {
                                                         ),
                                                       ),
                                                       Text(
-                                                        '15 Days ',
+                                                        '${user.SickLeaveBalance} Days ',
                                                         textAlign:
                                                             TextAlign.center,
                                                         style: TextStyle(
@@ -283,7 +286,7 @@ class _MainPageWebState extends State<MainPageWeb> {
                                       //Change when setup backend
                                       children: [
                                         Text(
-                                          'Balance : 15/20',
+                                          'Balance : ${user.SickLeaveBalance}/${user.TotalSickLeave}',
                                           style: TextStyle(
                                             fontSize: 18,
                                             fontFamily: 'Readex Pro',
@@ -316,7 +319,10 @@ class _MainPageWebState extends State<MainPageWeb> {
                                                   child:
                                                       CircularProgressIndicator(
                                                     strokeWidth: 20,
-                                                    value: 5 / 60,
+                                                    value: ((user
+                                                                .TotalHospitalisation -
+                                                            user.HospitalisationBalance) /
+                                                        user.TotalHospitalisation),
                                                     backgroundColor:
                                                         Colors.white,
                                                     valueColor:
@@ -333,7 +339,7 @@ class _MainPageWebState extends State<MainPageWeb> {
                                                   child: Column(
                                                     children: [
                                                       Text(
-                                                        "Hospitalization",
+                                                        "Hospitalisation",
                                                         style: TextStyle(
                                                           fontSize: 15,
                                                           fontFamily: 'Outfit',
@@ -344,7 +350,7 @@ class _MainPageWebState extends State<MainPageWeb> {
                                                         ),
                                                       ),
                                                       Text(
-                                                        '55 Days ',
+                                                        '${user.HospitalisationBalance} Days ',
                                                         textAlign:
                                                             TextAlign.center,
                                                         style: TextStyle(
@@ -369,10 +375,9 @@ class _MainPageWebState extends State<MainPageWeb> {
                                       mainAxisSize: MainAxisSize.max,
                                       mainAxisAlignment:
                                           MainAxisAlignment.center,
-                                      //Change when setup backend
                                       children: [
                                         Text(
-                                          'Balance : 55/60',
+                                          'Balance : ${user.HospitalisationBalance}/${user.TotalHospitalisation}',
                                           style: TextStyle(
                                             fontSize: 18,
                                             fontFamily: 'Readex Pro',
