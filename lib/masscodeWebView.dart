@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:masscode/widget/history.dart';
 import 'package:masscode/widget/pending_request.dart';
 import 'package:masscode/widget/requestLeaveWidget.dart';
+import 'models/user_model.dart';
 
 class MainPageWeb extends StatefulWidget {
   const MainPageWeb({super.key});
@@ -11,6 +12,18 @@ class MainPageWeb extends StatefulWidget {
 }
 
 class _MainPageWebState extends State<MainPageWeb> {
+  //---------------------------------------DATA-------------------------------//
+  User user = User(
+    id: '1',
+    name: 'Muhammad Salman',
+    AnnualLeaveBalance: 5,
+    SickLeaveBalance: 10,
+    HospitalisationBalance: 10,
+    TotalAnnualLeave: 15,
+    TotalSickLeave: 10,
+    TotalHospitalisation: 10,
+  );
+// ---------------------------------------------------------------------------//
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -32,7 +45,7 @@ class _MainPageWebState extends State<MainPageWeb> {
             ),
             //Change when setup backend
             title: Text(
-              'Hello, Masscoder !',
+              'Hello ${user.name} !',
               style: TextStyle(
                   color: Color.fromARGB(200, 20, 24, 27),
                   fontFamily: 'Readex Pro',
@@ -123,7 +136,10 @@ class _MainPageWebState extends State<MainPageWeb> {
                                                   child:
                                                       CircularProgressIndicator(
                                                     strokeWidth: 20,
-                                                    value: 3 / 14,
+                                                    value: ((user
+                                                                .TotalAnnualLeave -
+                                                            user.AnnualLeaveBalance) /
+                                                        user.TotalAnnualLeave),
                                                     backgroundColor:
                                                         Colors.white,
                                                     valueColor:
@@ -151,7 +167,7 @@ class _MainPageWebState extends State<MainPageWeb> {
                                                         ),
                                                       ),
                                                       Text(
-                                                        '11 Days ',
+                                                        '${user.AnnualLeaveBalance} Days',
                                                         textAlign:
                                                             TextAlign.center,
                                                         style: TextStyle(
@@ -178,7 +194,7 @@ class _MainPageWebState extends State<MainPageWeb> {
                                       //Change when setup backend
                                       children: [
                                         Text(
-                                          'Balance : 11/14',
+                                          'Balance : ${user.AnnualLeaveBalance}/${user.TotalAnnualLeave}',
                                           style: TextStyle(
                                             fontSize: 18,
                                             fontFamily: 'Readex Pro',
@@ -423,13 +439,13 @@ class _MainPageWebState extends State<MainPageWeb> {
                                 padding: EdgeInsets.fromLTRB(50, 10, 50, 10),
                                 child: FloatingActionButton.extended(
                                   onPressed: () async {
-                                    // await showModalBottomSheet(
-                                    //     context: context,
-                                    //     isScrollControlled: true,
-                                    //     backgroundColor: Colors.transparent,
-                                    //     builder: (context) {
-                                    //       return RequestLeave();
-                                    //     }).then((value) => setState(() {}));
+                                    await showModalBottomSheet(
+                                        context: context,
+                                        isScrollControlled: true,
+                                        backgroundColor: Colors.transparent,
+                                        builder: (context) {
+                                          return RequestLeave();
+                                        }).then((value) => setState(() {}));
                                   },
                                   label: Text(
                                     "Request Leave",

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:dropdown_button2/dropdown_button2.dart';
+import 'package:intl/intl.dart';
 
 class RequestLeave extends StatefulWidget {
   const RequestLeave({super.key});
@@ -16,9 +17,17 @@ class _RequestLeaveState extends State<RequestLeave> {
     "Hospitalization",
   ];
 
+  static var descCtrl = TextEditingController();
+  String? selectedStartDates;
+  String? selectedEndDates;
   String? selectedValue;
 
-  final _formKey = GlobalKey<FormState>();
+  @override
+  void initState() {
+    super.initState();
+    selectedStartDates = "Select Start Dates";
+    selectedEndDates = "Select End Dates";
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -118,8 +127,101 @@ class _RequestLeaveState extends State<RequestLeave> {
                     )
                   ],
                 ),
+                //Date-Range Picker
                 Row(
-                  children: [],
+                  children: [
+                    Text("${selectedStartDates} - ${selectedEndDates}"),
+                    ElevatedButton(
+                      onPressed: () async {
+                        final DateTimeRange? dateTimeRange =
+                            await showDateRangePicker(
+                          context: context,
+                          firstDate: DateTime(2000),
+                          lastDate: DateTime(2030),
+                        );
+                        if (dateTimeRange != null) {
+                          setState(() {
+                            selectedStartDates = DateFormat('yyyy-MM-dd')
+                                .format(dateTimeRange.start);
+                            selectedEndDates = DateFormat('yyyy-MM-dd')
+                                .format(dateTimeRange.end);
+                          });
+                        }
+                      },
+                      child: const Text("Choose Date"),
+                    )
+                  ],
+                ),
+
+                //Text Field Description
+                Row(
+                  children: [
+                    Padding(
+                      padding: EdgeInsets.fromLTRB(0, 15, 0, 0),
+                      child: Container(
+                        width: MediaQuery.of(context).size.width,
+                        height: 150,
+                        child: Padding(
+                          padding: EdgeInsets.fromLTRB(25, 0, 25, 0),
+                          child: TextField(
+                            autofocus: true,
+                            obscureText: false,
+                            maxLines: 5,
+                            style: TextStyle(
+                                color: Color.fromARGB(255, 0, 0, 0),
+                                fontSize: 13.0,
+                                fontWeight: FontWeight.w300,
+                                fontFamily: "Sans"),
+                            controller: descCtrl,
+                            keyboardType: TextInputType.text,
+                            decoration: InputDecoration(
+                                enabledBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                    color: Colors.black,
+                                    width: 1,
+                                  ),
+                                  borderRadius: const BorderRadius.only(
+                                    bottomLeft: Radius.circular(15),
+                                    bottomRight: Radius.circular(15),
+                                    topLeft: Radius.circular(15),
+                                    topRight: Radius.circular(15),
+                                  ),
+                                ),
+                                focusedBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                    color: Colors.black,
+                                    width: 1,
+                                  ),
+                                  borderRadius: const BorderRadius.only(
+                                    bottomLeft: Radius.circular(15),
+                                    bottomRight: Radius.circular(15),
+                                    topLeft: Radius.circular(15),
+                                    topRight: Radius.circular(15),
+                                  ),
+                                ),
+                                errorBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                    color: Colors.red,
+                                    width: 1,
+                                  ),
+                                  borderRadius: const BorderRadius.only(
+                                    bottomLeft: Radius.circular(15),
+                                    bottomRight: Radius.circular(15),
+                                    topLeft: Radius.circular(15),
+                                    topRight: Radius.circular(15),
+                                  ),
+                                ),
+                                hintText: 'Description',
+                                hintStyle: TextStyle(
+                                    color: Color.fromARGB(255, 0, 0, 0),
+                                    fontSize: 13.0,
+                                    fontWeight: FontWeight.w300,
+                                    fontFamily: "Sans")),
+                          ),
+                        ),
+                      ),
+                    )
+                  ],
                 )
               ],
             ),

@@ -410,13 +410,13 @@ class _MainPageAndroidState extends State<MainPageAndroid> {
                                 padding: EdgeInsets.fromLTRB(50, 10, 50, 10),
                                 child: FloatingActionButton.extended(
                                   onPressed: () async {
-                                    // await showModalBottomSheet(
-                                    //     context: context,
-                                    //     isScrollControlled: true,
-                                    //     backgroundColor: Colors.transparent,
-                                    //     builder: (context) {
-                                    //       return RequestLeave();
-                                    //     }).then((value) => setState(() {}));
+                                    await showModalBottomSheet(
+                                        context: context,
+                                        isScrollControlled: true,
+                                        backgroundColor: Colors.transparent,
+                                        builder: (context) {
+                                          return RequestLeave();
+                                        }).then((value) => setState(() {}));
                                   },
                                   label: Text(
                                     "Request Leave",
